@@ -82,7 +82,6 @@ require("packer").startup(function(use)
 
     use {
         "lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
         config = function()
             require("plugins.config.blankline")
         end
@@ -138,6 +137,114 @@ require("packer").startup(function(use)
         "akinsho/toggleterm.nvim",
         config = function()
             require("plugins.config.toggleterm")
+        end
+    }
+
+    -- LSP
+    use "neovim/nvim-lspconfig"
+
+    use {
+        "ray-x/lsp_signature.nvim",
+        after = "nvim-lspconfig",
+        config = function()
+            require("lsp_signature").setup()
+        end
+    }
+
+    use {
+        "rafamadriz/friendly-snippets",
+        module = "cmp_nvim_lsp",
+        event = "InsertCharPre"
+    }
+
+    use {
+        "hrsh7th/nvim-cmp",
+        after = "friendly-snippets",
+        config = function()
+            require("plugins.config.cmp")
+        end
+    }
+
+    use {
+        "L3MON4D3/LuaSnip",
+        wants = "friendly-snippets",
+        after = "nvim-cmp",
+        config = function()
+            require("plugins.config.luasnip")
+        end
+    }
+
+    use {
+        "saadparwaiz1/cmp_luasnip",
+        after = "LuaSnip"
+    }
+
+    use {
+        "hrsh7th/cmp-nvim-lua",
+        after = "cmp_luasnip"
+    }
+
+    use {
+        "hrsh7th/cmp-nvim-lsp",
+        after = "cmp-nvim-lua"
+    }
+
+    use {
+        "hrsh7th/cmp-buffer",
+        after = "cmp-nvim-lsp"
+    }
+
+    use {
+        "hrsh7th/cmp-path",
+        after = "cmp-buffer"
+    }
+
+    use {
+        "williamboman/nvim-lsp-installer",
+        requires = "neovim/nvim-lspconfig",
+        config = function()
+            local lspInstaller = require("nvim-lsp-installer")
+
+            lspInstaller.on_server_ready(function(server)
+                local opts = {}
+                server:setup(opts)
+                vim.cmd [[ do User LspAttachBuffers ]]
+            end)
+        end
+    }
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup()
+        end
+    }
+
+    use {
+        "simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline"
+    }
+
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup()
+        end
+    }
+
+    use {
+        "goolord/alpha-nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("alpha").setup(require("alpha.themes.dashboard").config)
+        end
+    }
+
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("plugins.config.whichkey")
         end
     }
 

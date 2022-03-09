@@ -10,6 +10,11 @@ require("nvim-tree").setup {
     disable_netrw = true,
     ignore_ft_on_setup = { "dashboard" },
     hijack_cursor = true,
+    update_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_cwd = true
+    },
     git = {
         ignore = false
     },
