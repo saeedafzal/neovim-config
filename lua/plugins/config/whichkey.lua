@@ -31,5 +31,5 @@ wk.register({
         d = { "<cmd>Gitsigns diffthis<CR>", "Diff This" }
     },
 
-    ["<TAB>"] = { "<cmd>BufferLineCycleNext<CR>" }
+    ["<TAB>"] = { "<cmd>BufferLineCycleNext<CR>", "Next Buffer" }
 })

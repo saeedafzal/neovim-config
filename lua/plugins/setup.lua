@@ -41,9 +41,6 @@ require("packer").startup(function(use)
         "ojroques/nvim-bufdel",
         config = function()
             require("plugins.config.bufdel")
-        end,
-        setup = function()
-            require("core.mappings").bufdel()
         end
     }
 
@@ -55,9 +52,6 @@ require("packer").startup(function(use)
         },
         config = function()
             require("plugins.config.bufferline")
-        end,
-        setup = function()
-            require("core.mappings").bufferline()
         end
     }
 
@@ -74,9 +68,6 @@ require("packer").startup(function(use)
         requires = "nvim-lua/plenary.nvim",
         config = function()
             require("gitsigns").setup()
-        end,
-        setup = function()
-            require("core.mappings").gitsigns()
         end
     }
 
@@ -100,9 +91,6 @@ require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
             require("plugins.config.nvimtree")
-        end,
-        setup = function()
-            require("core.mappings").nvimtree()
         end
     }
 
@@ -127,9 +115,6 @@ require("packer").startup(function(use)
         },
         config = function()
             require("plugins.config.telescope")
-        end,
-        setup = function()
-            require("core.mappings").telescope()
         end
     }
 
