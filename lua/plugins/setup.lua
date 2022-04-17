@@ -4,9 +4,10 @@ require("packer").startup(function(use)
     use "nathom/filetype.nvim"
 
     use {
-        "folke/tokyonight.nvim",
+        "catppuccin/nvim",
+        as = "catppuccin",
         config = function()
-            require("plugins.config.tokyonight")
+            vim.cmd[[colorscheme catppuccin]]
         end
     }
 
