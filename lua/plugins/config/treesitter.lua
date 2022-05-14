@@ -1,19 +1,11 @@
 require("nvim-treesitter.configs").setup {
-    ensure_installed = {
-        "lua",
-        "typescript",
-        "tsx",
-        "json",
-        "javascript"
-    },
+    ensure_installed = { "lua", "bash", "cpp", "css", "go", "gomod", "html", "javascript", "json", "make", "python", "typescript" },
+
     highlight = {
-        enable = true,
-        use_languagetree = true
-    },
-    matchup = {
         enable = true
     },
-    context_commentstring = {
+    
+    matchup = {
         enable = true
     }
 }

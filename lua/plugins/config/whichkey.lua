@@ -1,35 +1,46 @@
 local wk = require("which-key")
 
 wk.setup {
-    ignore_missing = true
+    ignore_missing = false
 }
 
 wk.register({
     ["<leader>"] = {
-        f = {
-            name = "Files",
-            f = { "<cmd>Telescope find_files<CR>", "Find File" },
-            g = { "<cmd>Telescope live_grep<CR>", "Live Grep" }
-        },
+        -- Barbar
         b = {
-            name = "Buffers",
-            b = { "<cmd>Telescope buffers<CR>", "Find Buffers" },
-            x = { "<cmd>BufDel<CR>", "Close Buffer" }
+            name = "Barbar",
+            x = { "<cmd>BufferClose<CR>", "Close Buffer" },
+            n = { "<cmd>BufferMoveNext<CR>", "Move Next" },
+            m = { "<cmd>BufferMovePrevious<CR>", "Move Previous" },
+            
+            p = {
+                name = "Pinned Buffers",
+                p = { "<cmd>BufferPin<CR>", "Pin Buffer" },
+                x = { "<cmd>BufferCloseAllButPinned<CR>", "Close All But Pinned" } 
+            }
         },
+
+        -- Telescope
         t = {
-            name = "NvimTree",
-            t = { "<cmd>NvimTreeToggle<CR>", "NvimTree Toggle" },
-            f = { "<cmd>NvimTreeFocus<CR>", "NvimTree Focus" }
+            name = "Telescope",
+            w = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
+            f = { "<cmd>Telescope fd<CR>", "Find Files" },
+            c = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find In Current Buffer" },
+            b = { "<cmd>Telescope buffers<CR>", "Buffers" },
+            k = { "<cmd>Telescope keymaps<CR>", "Keymaps" }
+        },
+
+        g = {
+            name = "Git",
+            b = { "<cmd>Gitsigns blame_line<CR>", "Blame Line" },
+            d = { "<cmd>Gitsigns diffthis<CR>", "Diff" }
         }
     },
 
-    g = {
-        name = "Git",
-        c = { "<cmd>Telescope git_commits<CR>", "Git Commits" },
-        s = { "<cmd>Telescope git_status<CR>", "Git Status" },
-        b = { "<cmd>Gitsigns blame_line<CR>", "Blame Line" },
-        d = { "<cmd>Gitsigns diffthis<CR>", "Diff This" }
-    },
+    -- NvimTree
+    ["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "NvimTree Toggle" },
 
-    ["<TAB>"] = { "<cmd>BufferLineCycleNext<CR>", "Next Buffer" }
+    -- Barbar (switching buffers)
+    ["<TAB>"] = { "<cmd>BufferNext<CR>", "Next Buffer" },
+    ["<S-TAB>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer" }
 })
