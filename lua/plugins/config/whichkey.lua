@@ -12,11 +12,11 @@ wk.register({
             x = { "<cmd>BufferClose<CR>", "Close Buffer" },
             n = { "<cmd>BufferMoveNext<CR>", "Move Next" },
             m = { "<cmd>BufferMovePrevious<CR>", "Move Previous" },
-            
+
             p = {
                 name = "Pinned Buffers",
                 p = { "<cmd>BufferPin<CR>", "Pin Buffer" },
-                x = { "<cmd>BufferCloseAllButPinned<CR>", "Close All But Pinned" } 
+                x = { "<cmd>BufferCloseAllButPinned<CR>", "Close All But Pinned" }
             }
         },
 
@@ -27,7 +27,8 @@ wk.register({
             f = { "<cmd>Telescope fd<CR>", "Find Files" },
             c = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find In Current Buffer" },
             b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-            k = { "<cmd>Telescope keymaps<CR>", "Keymaps" }
+            k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
+            t = { "<cmd>TodoTelescope<CR>", "Todos" }
         },
 
         g = {
@@ -42,5 +43,11 @@ wk.register({
 
     -- Barbar (switching buffers)
     ["<TAB>"] = { "<cmd>BufferNext<CR>", "Next Buffer" },
-    ["<S-TAB>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer" }
+    ["<S-TAB>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer" },
+
+    ["t"] = {
+        name = "Trouble",
+        t = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
+        d = { "<cmd>TodoTrouble<CR>", "Todos" }
+    }
 })

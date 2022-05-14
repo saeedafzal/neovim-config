@@ -10,11 +10,6 @@ require("nvim-tree").setup {
     hijack_cursor = true,
     update_cwd = true,
 
-    update_focused_file = {
-        enable = true,
-        update_cwd = true
-    },
-
     view = {
         hide_root_folder = true
     },
@@ -23,5 +18,14 @@ require("nvim-tree").setup {
         indent_markers = {
             enable = true
         }
+    },
+
+    update_focused_file = {
+        enable = true,
+        update_cwd = true
+    },
+
+    diagnostics = {
+        enable = true
     }
 }

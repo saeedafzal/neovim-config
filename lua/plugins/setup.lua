@@ -118,6 +118,72 @@ require("packer").startup(function(use)
         end
     }
 
+    -- NOTE: LSP
+    use {
+        "williamboman/nvim-lsp-installer",
+        {
+            "neovim/nvim-lspconfig",
+            config = function()
+                require("nvim-lsp-installer").setup()
+            end
+        }
+    }
+
+    use {
+        "ray-x/lsp_signature.nvim",
+        after = "nvim-lspconfig",
+        config = function()
+            require("lsp_signature").setup()
+        end
+    }
+
+    use {
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip"
+    }
+
+    use {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        {
+            "hrsh7th/nvim-cmp",
+            config = function()
+                require("plugins.config.cmp")
+                require("plugins.config.lspconfig")
+            end
+        }
+    }
+
+    use {
+        "rafamadriz/friendly-snippets",
+        event = "InsertCharPre"
+    }
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup()
+        end
+    }
+
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup()
+        end
+    }
+
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup()
+        end
+    }
+
     if packer_bootstrap then
         require("packer").sync()
     end
