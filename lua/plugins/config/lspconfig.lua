@@ -2,6 +2,17 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 
 local lspconfig = require("lspconfig")
 
-lspconfig.sumneko_lua.setup {
-    capabilities = capabilities
+local lsp_servers = {
+    lspconfig.sumneko_lua,
+    lspconfig.tsserver,
+    lspconfig.gopls,
+    lspconfig.cssls,
+    lspconfig.ccls,
+    lspconfig.html
 }
+
+for _, i in ipairs(lsp_servers) do
+    i.setup {
+        capabilities = capabilities
+    }
+end

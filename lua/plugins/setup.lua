@@ -150,8 +150,8 @@ require("packer").startup(function(use)
         {
             "hrsh7th/nvim-cmp",
             config = function()
-                require("plugins.config.cmp")
                 require("plugins.config.lspconfig")
+                require("plugins.config.cmp")
             end
         }
     }
