@@ -124,7 +124,7 @@ require("packer").startup(function(use)
         {
             "neovim/nvim-lspconfig",
             config = function()
-                require("nvim-lsp-installer").setup()
+                require("nvim-lsp-installer").setup {}
             end
         }
     }
