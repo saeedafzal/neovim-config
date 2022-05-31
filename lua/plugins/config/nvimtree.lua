@@ -1,12 +1,6 @@
-local g = vim.g
-
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_group_empty = 1
-g.nvim_tree_create_in_closed_folder = 1
-
 require("nvim-tree").setup {
     disable_netrw = true,
+    create_in_closed_folder = true,
     hijack_cursor = true,
     update_cwd = true,
 
@@ -15,6 +9,9 @@ require("nvim-tree").setup {
     },
 
     renderer = {
+        highlight_git = true,
+        highlight_opened_files = "all",
+        group_empty = true,
         indent_markers = {
             enable = true
         }

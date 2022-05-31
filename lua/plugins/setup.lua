@@ -4,10 +4,9 @@ require("packer").startup(function(use)
     use "nathom/filetype.nvim"
 
     use {
-        "catppuccin/nvim",
-        as = "catppuccin",
+        "folke/tokyonight.nvim",
         config = function()
-            require("plugins.config.catppuccin")
+            require("plugins.config.tokyonight")
         end
     }
 
@@ -124,7 +123,7 @@ require("packer").startup(function(use)
         {
             "neovim/nvim-lspconfig",
             config = function()
-                require("nvim-lsp-installer").setup {}
+                require("nvim-lsp-installer").setup()
             end
         }
     }
