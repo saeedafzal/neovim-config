@@ -119,13 +119,14 @@ require("packer").startup(function(use)
 
     -- NOTE: LSP
     use {
-        "williamboman/nvim-lsp-installer",
-        {
+        "junnplus/nvim-lsp-setup",
+        requires = {
             "neovim/nvim-lspconfig",
-            config = function()
-                require("nvim-lsp-installer").setup()
-            end
-        }
+            "williamboman/nvim-lsp-installer"
+        },
+        config = function()
+            require("plugins.config.lspsetup")
+        end
     }
 
     use {
@@ -149,7 +150,6 @@ require("packer").startup(function(use)
         {
             "hrsh7th/nvim-cmp",
             config = function()
-                require("plugins.config.lspconfig")
                 require("plugins.config.cmp")
             end
         }
