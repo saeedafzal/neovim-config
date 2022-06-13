@@ -6,7 +6,6 @@ require("nvim-lsp-setup").setup {
         cssls = {},
         jsonls = {},
         html = {},
-        vala_ls = {},
         volar = {}
     }
 }
