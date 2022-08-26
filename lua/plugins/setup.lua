@@ -11,6 +11,14 @@ require("packer").startup(function(use)
     }
 
     use {
+        "catppuccin/nvim",
+        as = "catppuccin",
+        config = function()
+            require("plugins.config.catppuccin")
+        end
+    }
+
+    use {
         "kyazdani42/nvim-web-devicons",
         config = function()
             require("nvim-web-devicons").setup()

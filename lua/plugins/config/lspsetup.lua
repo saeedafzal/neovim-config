@@ -5,6 +5,7 @@ require("lsp-setup").setup {
         gopls = {},
         cssls = {},
         jsonls = {},
-        html = {}
+        html = {},
+        pylsp = {}
     }
 }
