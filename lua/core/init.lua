@@ -1,6 +1,11 @@
 local opt = vim.opt
 local g = vim.g
 
+-- Disable
+g.loaded = 1
+g.loaded_netrwPlugin = 1
+
+-- Settings
 g.mapleader = " "
 
 opt.backup = false

@@ -1,4 +1,25 @@
-require("packer").startup(function(use)
+-- Install packer for the first time
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
+end
+
+local packer_bootstrap = ensure_packer()
+
+-- Safely load packer
+local ok, packer = pcall(require, "packer")
+if not ok then
+    return
+end
+
+-- Setup the plugins
+return packer.startup(function(use)
     use "wbthomason/packer.nvim"
     use "nvim-lua/plenary.nvim"
     use "nathom/filetype.nvim"
@@ -10,18 +31,21 @@ require("packer").startup(function(use)
         end
     }
 
+    use "kyazdani42/nvim-web-devicons"
+
     use {
-        "catppuccin/nvim",
-        as = "catppuccin",
+        "kyazdani42/nvim-tree.lua",
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require("plugins.config.catppuccin")
+            require("plugins.config.nvimtree")
         end
     }
 
     use {
-        "kyazdani42/nvim-web-devicons",
+        "romgrk/barbar.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require("nvim-web-devicons").setup()
+            require("plugins.config.barbar")
         end
     }
 
@@ -34,23 +58,6 @@ require("packer").startup(function(use)
     }
 
     use {
-        "andymass/vim-matchup",
-        after = "nvim-treesitter"
-    }
-
-    use {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("plugins.config.colorizer")
-        end
-    }
-
-    use {
-        "romgrk/barbar.nvim",
-        requires = "kyazdani42/nvim-web-devicons"
-    }
-
-    use {
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
         config = function()
@@ -59,10 +66,9 @@ require("packer").startup(function(use)
     }
 
     use {
-        "kyazdani42/nvim-tree.lua",
-        requires = "kyazdani42/nvim-web-devicons",
+        "norcalli/nvim-colorizer.lua",
         config = function()
-            require("plugins.config.nvimtree")
+            require("plugins.config.colorizer")
         end
     }
 
@@ -80,31 +86,16 @@ require("packer").startup(function(use)
         end
     }
 
-    use "JoosepAlviste/nvim-ts-context-commentstring"
-
     use {
         "numToStr/Comment.nvim",
-        requires = "JoosepAlviste/nvim-ts-context-commentstring",
         config = function()
             require("Comment").setup()
         end
     }
 
     use {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        run = "make"
-    }
-
-    use {
-        "nvim-telescope/telescope.nvim",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("plugins.config.telescope")
-        end
-    }
-
-    use {
         "akinsho/toggleterm.nvim",
+        tag = "*",
         config = function()
             require("plugins.config.toggleterm")
         end
@@ -118,14 +109,21 @@ require("packer").startup(function(use)
         end
     }
 
+    -- Telescope
     use {
-        "folke/which-key.nvim",
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make"
+    }
+
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = "nvim-lua/plenary.nvim",
         config = function()
-            require("plugins.config.whichkey")
+            require("plugins.config.telescope")
         end
     }
 
-    -- NOTE: LSP
+    -- LSP
     use {
         "junnplus/nvim-lsp-setup",
         requires = {
@@ -139,34 +137,31 @@ require("packer").startup(function(use)
     }
 
     use {
-        "ray-x/lsp_signature.nvim",
-        after = "nvim-lspconfig",
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "L3MON4D3/LuaSnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-cmdline"
+        },
         config = function()
-            require("lsp_signature").setup()
+            require("plugins.config.cmp")
         end
-    }
-
-    use {
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip"
-    }
-
-    use {
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        {
-            "hrsh7th/nvim-cmp",
-            config = function()
-                require("plugins.config.cmp")
-            end
-        }
     }
 
     use {
         "rafamadriz/friendly-snippets",
         event = "InsertCharPre"
+    }
+
+    use {
+        "ray-x/lsp_signature.nvim",
+        after = "nvim-lspconfig",
+        config = function()
+            require("lsp_signature").setup()
+        end
     }
 
     use {
@@ -189,6 +184,20 @@ require("packer").startup(function(use)
         requires = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup()
+        end
+    }
+
+    use {
+        "simrat39/symbols-outline.nvim",
+        config = function()
+            require("symbols-outline").setup()
+        end
+    }
+
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("plugins.config.whichkey")
         end
     }
 

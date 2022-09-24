@@ -1,3 +1,6 @@
-local g = vim.g
+require("tokyonight").setup {
+    style = "night",
+    lualine_bold = true
+}
 
-vim.g.tokyonight_italic_functions = true
+vim.cmd [[colorscheme tokyonight]]

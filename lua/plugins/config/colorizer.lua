@@ -9,4 +9,5 @@ require("colorizer").setup(
         hsl_fn = true,
         css = true,
         css_fn = true
-})
+    }
+)

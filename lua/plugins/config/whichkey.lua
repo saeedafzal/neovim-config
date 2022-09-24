@@ -1,8 +1,7 @@
 local wk = require("which-key")
 
 wk.setup {
-    -- TODO: Change to true
-    ignore_missing = false,
+    ignore_missing = true,
     key_labels = {
         ["<space>"] = "SPC"
     }
@@ -10,62 +9,49 @@ wk.setup {
 
 wk.register({
     ["<leader>"] = {
-        -- Files
-        ["<space>"] = { "<cmd>Telescope fd<CR>", "find files" },
-
-        -- Buffers
-        b = {
-            name = "buffers",
-            x = { "<cmd>BufferClose<CR>", "close buffer" },
-            n = { "<cmd>BufferMoveNext<CR>", "move next" },
-            m = { "<cmd>BufferMovePrevious<CR>", "move previous" },
-            f = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "find in current buffer" },
-
-            p = {
-                name = "pinned buffers",
-                p = { "<cmd>BufferPin<CR>", "pin buffer" },
-                x = { "<cmd>BufferCloseAllButPinned<CR>", "close all but pinned" }
-            }
-        },
-
-        -- Telescope
-        t = {
-            name = "Telescope",
+        f = {
+            name = "Find",
+            f = { "<cmd>Telescope fd<CR>", "find file" },
             w = { "<cmd>Telescope live_grep<CR>", "live grep" },
-            b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-            k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-            t = { "<cmd>TodoTelescope<CR>", "Todos" },
-            c = { "<cmd>TodoTelescope<CR>", "" },
-            ["."] = { "<cmd>Telescope keymaps<CR>", "Global Keymaps" }
+            b = { "<cmd>Telescope buffers<CR>", "all buffers" },
+            t = { "<cmd>TodoTelescope<CR>", "todos" },
+            ["."] = { "<cmd>Telescope keymaps<CR>", "keymaps" }
         },
 
-        -- Git
-        g = {
-            name = "Git",
-            b = { "<cmd>Gitsigns blame_line<CR>", "Blame Line" },
-            d = { "<cmd>Gitsigns diffthis<CR>", "Diff" }
-        },
-
-        -- LSP
         l = {
             name = "LSP",
-            a = { "<cmd>vim.lsp.buf.code_action()<CR>", "Code Action" },
-            f = { "<cmd>vim.lsp.buf.formatting()<CR>", "Format" },
-            n = { "<cmd>vim.lsp.buf.rename()<CR>", "Rename" }
-        }
+            r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "rename" },
+            d = { "<cmd>Telescope diagnostics<CR>", "diagnostics" }
+        },
+
+        b = {
+            name = "Buffer",
+            p = { "<cmd>BufferPick<CR>", "pick buffer" }
+        },
+
+        g = {
+            name = "Git",
+            b = { "<cmd>Gitsigns blame_line<CR>", "blame line" },
+            d = { "<cmd>Gitsigns diffthis<CR>", "diff" },
+            s = { "<cmd>Telescope git_status<CR>", "git status" },
+            c = { "<cmd>Telescope git_commits<CR>", "commits" }
+        },
+
+        x = { "<cmd>BufferClose<CR>", "close buffer" },
+        r = { "<cmd>NvimTreeRefresh<CR>", "refresh tree" },
+        c = { "<cmd>Telescope colorscheme<CR>", "colorscheme" },
+        s = { "<cmd>SymbolsOutline<CR>", "symbols outline" }
     },
 
-    -- NvimTree
-    ["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "NvimTree Toggle" },
+    t = {
+        name = "Trouble",
+        t = { "<cmd>TroubleToggle<CR>", "toggle trouble" }
+    },
+
+    -- Nvim Tree
+    ["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "toggle nvimtree" },
 
     -- Switching Buffers
-    ["<TAB>"] = { "<cmd>BufferNext<CR>", "Next Buffer" },
-    ["<S-TAB>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer" },
-
-    -- Trouble
-    ["t"] = {
-        name = "Trouble",
-        t = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
-        d = { "<cmd>TodoTrouble<CR>", "Todos" }
-    }
+    ["<TAB>"] = { "<cmd>BufferNext<CR>", "next buffer" },
+    ["<S-TAB>"] = { "<cmd>BufferPrevious<CR>", "previous buffer" }
 })
