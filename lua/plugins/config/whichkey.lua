@@ -50,6 +50,16 @@ wk.register({
         t = { "<cmd>TroubleToggle<CR>", "toggle trouble" }
     },
 
+    g = {
+        d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "definition" },
+        D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "declaration" },
+        i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "implementation" },
+        t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "type definition" }
+    },
+
+    K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "hover" },
+    ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "signature help" },
+
     -- Nvim Tree
     ["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "toggle nvimtree" },
 
