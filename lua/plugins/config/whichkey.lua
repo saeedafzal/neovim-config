@@ -21,7 +21,9 @@ wk.register({
         l = {
             name = "LSP",
             r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "rename" },
-            d = { "<cmd>Telescope diagnostics<CR>", "diagnostics" }
+            d = { "<cmd>Telescope diagnostics<CR>", "diagnostics" },
+            f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "format" },
+            a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "code action" }
         },
 
         b = {
