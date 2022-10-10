@@ -1,6 +1,7 @@
 require("lualine").setup {
     options = {
-        theme = "catppuccin"
+        -- theme = "catppuccin"
+        theme = "tokyonight"
     },
 
     extensions = {
