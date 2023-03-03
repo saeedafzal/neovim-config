@@ -18,7 +18,8 @@ require("nvim-tree").setup {
     },
 
     diagnostics = {
-        enable = true
+        enable = true,
+        show_on_dirs = true
     },
 
     filters = {

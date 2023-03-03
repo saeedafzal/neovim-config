@@ -31,14 +31,6 @@ return packer.startup(function(use)
         end
     }
 
-    use {
-        "catppuccin/nvim",
-        as = "catppuccin",
-        config = function()
-            require("plugins.config.catppuccin")
-        end
-    }
-
     use "kyazdani42/nvim-web-devicons"
 
     use {
@@ -51,10 +43,7 @@ return packer.startup(function(use)
 
     use {
         "romgrk/barbar.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("plugins.config.barbar")
-        end
+        requires = "kyazdani42/nvim-web-devicons"
     }
 
     use {
@@ -74,9 +63,9 @@ return packer.startup(function(use)
     }
 
     use {
-        "norcalli/nvim-colorizer.lua",
+        "NvChad/nvim-colorizer.lua",
         config = function()
-            require("plugins.config.colorizer")
+            require("colorizer").setup()
         end
     }
 
@@ -93,123 +82,4 @@ return packer.startup(function(use)
             require("plugins.config.blankline")
         end
     }
-
-    use {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end
-    }
-
-    use {
-        "akinsho/toggleterm.nvim",
-        tag = "*",
-        config = function()
-            require("plugins.config.toggleterm")
-        end
-    }
-
-    use {
-        "goolord/alpha-nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("alpha").setup(require("alpha.themes.dashboard").config)
-        end
-    }
-
-    -- Telescope
-    use {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        run = "make"
-    }
-
-    use {
-        "nvim-telescope/telescope.nvim",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("plugins.config.telescope")
-        end
-    }
-
-    -- LSP
-    use {
-        "junnplus/nvim-lsp-setup",
-        requires = {
-            "neovim/nvim-lspconfig",
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim"
-        },
-        config = function()
-            require("plugins.config.lspsetup")
-        end
-    }
-
-    use {
-        "hrsh7th/nvim-cmp",
-        requires = {
-            "L3MON4D3/LuaSnip",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-buffer",
-            "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-cmdline"
-        },
-        config = function()
-            require("plugins.config.cmp")
-        end
-    }
-
-    use {
-        "rafamadriz/friendly-snippets",
-        event = "InsertCharPre"
-    }
-
-    use {
-        "ray-x/lsp_signature.nvim",
-        after = "nvim-lspconfig",
-        config = function()
-            require("lsp_signature").setup()
-        end
-    }
-
-    use {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup()
-        end
-    }
-
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup()
-        end
-    }
-
-    use {
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup()
-        end
-    }
-
-    use {
-        "simrat39/symbols-outline.nvim",
-        config = function()
-            require("symbols-outline").setup()
-        end
-    }
-
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("plugins.config.whichkey")
-        end
-    }
-
-    if packer_bootstrap then
-        require("packer").sync()
-    end
 end)
