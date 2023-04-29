@@ -151,5 +151,12 @@ return {
         lazy = true,
         dependencies = "mfussenegger/nvim-dap",
         config = true
+    },
+
+    {
+        "folke/which-key.nvim",
+        config = function()
+            require("plugins.config.whichkey")
+        end
     }
 }

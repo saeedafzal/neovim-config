@@ -6,15 +6,17 @@ return {
         build = "make"
     },
     cmd = "Telescope",
-    opts = {
-        defaults = {
-            layout_strategy = "vertical"
-        },
-
-        file_ignore_patterns = { "node_modules" }
-    },
     config = function()
         local telescope = require("telescope")
+
+        telescope.setup {
+            defaults = {
+                layout_strategy = "vertical"
+            },
+
+            file_ignore_patterns = { "node_modules" }
+        }
+
         telescope.load_extension("fzf")
     end
 }
