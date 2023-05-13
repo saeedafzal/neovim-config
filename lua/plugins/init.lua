@@ -3,6 +3,7 @@ return {
     "nathom/filetype.nvim",
     "LunarVim/bigfile.nvim",
     "f-person/git-blame.nvim",
+    "nvim-tree/nvim-web-devicons",
 
     {
         "numToStr/Comment.nvim",
