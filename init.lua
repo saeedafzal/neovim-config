@@ -17,7 +17,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Import plugins
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+    change_detection = {
+        notify = false
+    }
+})
 
 -- Set colorscheme
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme catppuccin]]

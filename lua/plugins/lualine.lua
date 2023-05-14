@@ -3,7 +3,7 @@ return {
     event = "BufEnter",
     opts = {
         options = {
-            theme = "tokyonight"
+            theme = "catppuccin"
         },
 
         extensions = {
