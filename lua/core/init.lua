@@ -14,6 +14,7 @@ opt.termguicolors = true
 opt.number = true
 opt.mouse = "a"
 opt.hidden = true
+opt.scrolloff = 8
 
 -- Indentation
 opt.expandtab = true

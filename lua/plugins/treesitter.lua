@@ -9,7 +9,10 @@ return {
         require("nvim-treesitter.configs").setup {
             highlight = { enable = true },
             incremental_selection = { enable = true },
-            indent = { enable = true },
+            indent = {
+                enable = true,
+                disable = { 'dart' }
+            },
             autotag = { enable = true },
             context_commentstring = { enable = true, enable_autocmd = false },
             matchup = { enable = true }

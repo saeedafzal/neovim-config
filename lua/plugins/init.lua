@@ -1,6 +1,5 @@
 return {
     "nvim-lua/plenary.nvim",
-    "nathom/filetype.nvim",
     "LunarVim/bigfile.nvim",
     "f-person/git-blame.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -159,5 +158,15 @@ return {
         config = function()
             require("plugins.config.whichkey")
         end
+    },
+
+    {
+        "akinsho/flutter-tools.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "stevearc/dressing.nvim"
+        },
+        config = true
     }
 }
