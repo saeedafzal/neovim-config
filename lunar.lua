@@ -1,93 +1,49 @@
--- Custom additions to my lunarvim setup
+-- Read the docs: https://www.lunarvim.org/docs/configuration
+-- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
+-- Forum: https://www.reddit.com/r/lunarvim/
+-- Discord: https://discord.com/invite/Xb9B4Ny
 
--- CUSTOM CONFIGURATION
 local opt = vim.opt
+
+-- Indentation
 opt.smartindent = true
 opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.scrolloff = 8
 
--- PLUGINS
+-- Plugins
 lvim.plugins = {
     {
         "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup()
-        end
+        dependencies = "nvim-lua/plenary.nvim",
+        config = true
     },
     {
-        "NvChad/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end
-    },
-    {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        cmd = "TroubleToggle",
-        config = function()
-            require("trouble").setup()
-        end
-    },
-    {
-        "weilbith/nvim-code-action-menu",
-        requires = "neovim/nvim-lspconfig",
-        cmd = "CodeActionMenu"
-    },
-    {
-        "ellisonleao/glow.nvim",
-        config = function()
-            require("glow").setup()
-        end
-    },
-    {
-        "CosmicNvim/cosmic-ui",
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim"
+        "akinsho/flutter-tools.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "stevearc/dressing.nvim"
         },
-        config = function()
-            require("cosmic-ui").setup()
-        end
+        config = true
     },
     {
-        "leoluz/nvim-dap-go",
-        config = function()
-            require("dap-go").setup()
-        end
+        "nmac427/guess-indent.nvim",
+        lazy = false,
+        config = true
     }
 }
 
-lvim.builtin.dap.active = true
-
--- KEYMAPS
-lvim.builtin.which_key.mappings["t"] = {
-    name = "+Trouble",
-    t = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
-    r = { "<cmd>Trouble lsp_references<cr>", "References" },
-    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-}
-
-lvim.builtin.which_key.mappings["la"] = {
-    "<cmd>CodeActionMenu<CR>",
-    "Code Action"
-}
-
+-- Mappings
 lvim.keys.normal_mode["<TAB>"] = "<cmd>BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-TAB>"] = "<cmd>BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<C-f>"] = "<cmd>Telescope current_buffer_fuzzy_find<CR>"
 lvim.keys.normal_mode["<C-k>"] = "25<C-e>"
+lvim.keys.normal_mode["<C-r>"] = "<cmd>! make<CR>"
+lvim.keys.normal_mode["K"] = "<cmd>lua vim.lsp.buf.hover()<CR>"
+lvim.keys.normal_mode["gd"] = "<cmd>lua vim.lsp.buf.definition()<CR>"
 
-lvim.builtin.which_key.mappings["lr"] = {
-    "<cmd>lua require('cosmic-ui').rename()<CR>",
-    "Rename"
-}
 lvim.builtin.terminal.open_mapping = "<C-t>"
 
 lvim.builtin.which_key.mappings["bb"] = {
