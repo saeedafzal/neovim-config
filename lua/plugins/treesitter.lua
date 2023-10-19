@@ -1,20 +1,22 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-        "windwp/nvim-ts-autotag",
-        "JoosepAlviste/nvim-ts-context-commentstring"
+        { "windwp/nvim-ts-autotag", config = true }
     },
     build = ":TSUpdate",
     config = function()
-        require("nvim-treesitter.configs").setup {
+        local configs = require("nvim-treesitter.configs")
+
+        configs.setup {
+            ensure_installed = { "lua" },
             highlight = { enable = true },
-            incremental_selection = { enable = true },
+
             indent = {
                 enable = true,
-                disable = { 'dart' }
+                disable = { "dart" }
             },
+
             autotag = { enable = true },
-            context_commentstring = { enable = true, enable_autocmd = false },
             matchup = { enable = true }
         }
     end

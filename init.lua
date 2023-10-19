@@ -1,6 +1,5 @@
 -- Import core configuration
 require("core")
-require("core.neovide")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

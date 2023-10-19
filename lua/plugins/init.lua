@@ -1,25 +1,31 @@
 return {
-    "nvim-lua/plenary.nvim",
     "LunarVim/bigfile.nvim",
-    "f-person/git-blame.nvim",
-    "nvim-tree/nvim-web-devicons",
+    "wakatime/vim-wakatime",
 
     {
-        "numToStr/Comment.nvim",
+        "nvim-pack/nvim-spectre",
+        dependencies = "nvim-lua/plenary.nvim"
+    },
+
+    {
+        "folke/todo-comments.nvim",
+        event = "BufRead",
+        dependencies = "nvim-lua/plenary.nvim",
         config = true
     },
 
     {
-        "goolord/alpha-nvim",
-        dependencies = "nvim-tree/nvim-web-devicons",
-        config = function()
-            require("alpha").setup(require("alpha.themes.dashboard").config)
-        end
+        "nmac427/guess-indent.nvim",
+        lazy = false,
+        config = true
     },
 
     {
         "andymass/vim-matchup",
-        dependencies = "nvim-treesitter/nvim-treesitter"
+        event = "CursorMoved",
+        config = function()
+            vim.g.matchup_matchparen_offscreen = { method = "popup" }
+        end
     },
 
     {
@@ -28,19 +34,12 @@ return {
         config = true
     },
 
-    {
-        "folke/todo-comments.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = true
-    },
-
-    {
-        "nmac427/guess-indent.nvim",
-        config = true
-    },
+    -- NOTE: Git
+    "f-person/git-blame.nvim",
 
     {
         "lewis6991/gitsigns.nvim",
+        event = "BufEnter",
         config = true
     },
 
@@ -52,48 +51,22 @@ return {
     },
 
     -- NOTE: LSP
-
     {
-        "neovim/nvim-lspconfig",
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x",
         lazy = true,
-        dependencies = {
-            { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-            "williamboman/mason-lspconfig.nvim"
-        }
-    },
-
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = "williamboman/mason.nvim",
-        config = function()
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-            local handlers = {
-                function (server_name)
-                    require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
-                    }
-                end
-            }
-
-            require("mason-lspconfig").setup { handlers = handlers }
+        config = false,
+        init = function()
+            local g = vim.g
+            g.lsp_zero_extend_cmp = 0
+            g.lsp_zero_extend_lspconfig = 0
         end
     },
 
     {
         "williamboman/mason.nvim",
-        build = ":MasonUpdate",
+        lazy = false,
         config = true
-    },
-
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = {
-            "rafamadriz/friendly-snippets",
-            config = function()
-                require("luasnip.loaders.from_vscode").lazy_load()
-            end
-        }
     },
 
     {
@@ -101,8 +74,6 @@ return {
         event = "InsertEnter",
         config = true
     },
-
-    "RRethy/vim-illuminate",
 
     {
         "ray-x/lsp_signature.nvim",
@@ -124,42 +95,21 @@ return {
     },
 
     {
-        "weilbith/nvim-code-action-menu",
-        dependencies = "neovim/nvim-lspconfig",
-        cmd = "CodeActionMenu"
-    },
-
-    {
-        "CosmicNvim/cosmic-ui",
-        lazy = true,
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim"
-        },
+        "numToStr/Comment.nvim",
+        lazy = false,
         config = true
     },
 
     {
-        "rcarriga/nvim-dap-ui",
-        lazy = true,
-        dependencies = "mfussenegger/nvim-dap",
-        config = true
+        "rmagatti/goto-preview",
+        opts = {
+            default_mappings = true
+        }
     },
 
-    {
-        "leoluz/nvim-dap-go",
-        lazy = true,
-        dependencies = "mfussenegger/nvim-dap",
-        config = true
-    },
+    "RRethy/vim-illuminate",
 
-    {
-        "folke/which-key.nvim",
-        config = function()
-            require("plugins.config.whichkey")
-        end
-    },
-
+    -- NOTE: Flutter
     {
         "akinsho/flutter-tools.nvim",
         lazy = false,
