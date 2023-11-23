@@ -35,7 +35,10 @@ return {
     },
 
     -- NOTE: Git
-    "f-person/git-blame.nvim",
+    {
+        "f-person/git-blame.nvim",
+        cmd = "GitBlameToggle"
+    },
 
     {
         "lewis6991/gitsigns.nvim",

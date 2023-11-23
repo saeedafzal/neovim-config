@@ -35,7 +35,14 @@ local function config()
             l = {
                 name = "LSP",
                 f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
-                a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
+                a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+                r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" }
+            },
+
+            -- Spectre
+            r = {
+                name = "Spectre",
+                R = { "<cmd>lua require('spectre').toggle()<CR>", "Replace All" }
             },
 
             -- Misc
@@ -58,10 +65,7 @@ local function config()
         ["<S-TAB>"] = { "<cmd>BufferPrevious<CR>", "Previous buffer" },
 
         -- Find in file
-        ["<C-f>"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in file" },
-
-        -- Text replacer in file
-        ["<C-r>"] = { "<cmd>lua require('spectre').toggle()<CR>", "Replace in file" }
+        ["<C-f>"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in file" }
     })
 end
 
