@@ -4,6 +4,7 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
 local opt = vim.opt
+local api = vim.api
 
 -- Indentation
 opt.smartindent = true
@@ -16,6 +17,7 @@ opt.scrolloff = 8
 lvim.plugins = {
     {
         "folke/todo-comments.nvim",
+        event = "BufRead",
         dependencies = "nvim-lua/plenary.nvim",
         config = true
     },
@@ -31,6 +33,54 @@ lvim.plugins = {
     {
         "nmac427/guess-indent.nvim",
         lazy = false,
+        config = true,
+    },
+    {
+        "NvChad/nvim-colorizer.lua",
+        event = "BufEnter",
+        opts = {
+            filetypes = {
+                "*",
+                "!markdown",
+            },
+            user_default_options = {
+                RRGGBBAA = true,
+                AARRGGBB = true,
+                rgb_fn = true,
+                hsl_fn = true,
+                css = true,
+                css_fn = true,
+                sass = { enable = true }
+            }
+        }
+    },
+    {
+        "nvim-pack/nvim-spectre",
+        dependencies = "nvim-lua/plenary.nvim"
+    },
+    {
+        "ellisonleao/glow.nvim",
+        cmd = "Glow",
+        config = true
+    },
+    {
+        "f-person/git-blame.nvim",
+        cmd = "GitBlameToggle"
+    },
+    {
+        "sindrets/diffview.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        cmd = "DiffviewOpen",
+        config = true
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        dependencies = "neovim/nvim-lspconfig",
+        config = true
+    },
+    {
+        "simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline",
         config = true
     }
 }
@@ -39,27 +89,29 @@ lvim.plugins = {
 lvim.keys.normal_mode["<TAB>"] = "<cmd>BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-TAB>"] = "<cmd>BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<C-f>"] = "<cmd>Telescope current_buffer_fuzzy_find<CR>"
-lvim.keys.normal_mode["<C-k>"] = "25<C-e>"
-lvim.keys.normal_mode["<C-r>"] = "<cmd>! make<CR>"
-lvim.keys.normal_mode["K"] = "<cmd>lua vim.lsp.buf.hover()<CR>"
-lvim.keys.normal_mode["gd"] = "<cmd>lua vim.lsp.buf.definition()<CR>"
 
 lvim.builtin.terminal.open_mapping = "<C-t>"
 
-lvim.builtin.which_key.mappings["bb"] = {
-    "<cmd>BufferLineMovePrev<CR>",
-    "Buffer Move Next"
-}
-lvim.builtin.which_key.mappings["bn"] = {
-    "<cmd>BufferLineMoveNext<CR>",
-    "Buffer Move Next"
-}
-
 -- Commands
-vim.api.nvim_create_user_command("Tabs", function()
-    opt.expandtab = false
-end, {})
+local function indent(n, expand)
+    local size = 4
+    if n ~= "" then size = n end
 
-vim.api.nvim_create_user_command("Spaces", function()
-    opt.expandtab = true
-end, {})
+    -- Number conversion
+    local num = tonumber(size)
+    if num then
+        size = num
+    end
+
+    opt.expandtab = expand
+    opt.shiftwidth = size
+    opt.tabstop = size
+end
+
+api.nvim_create_user_command("Tabs", function(v)
+    indent(v.args, false)
+end, { nargs = "?" })
+
+api.nvim_create_user_command("Spaces", function(v)
+    indent(v.args, true)
+end, { nargs = "?" })
