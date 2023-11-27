@@ -14,9 +14,12 @@ opt.backup = false
 opt.swapfile = false
 opt.termguicolors = true
 opt.number = true
+opt.relativenumber = true
 opt.mouse = "a"
 opt.hidden = true
 opt.scrolloff = 8
+
+opt.conceallevel = 3
 
 -- Indentation
 opt.expandtab = true
