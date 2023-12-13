@@ -19,8 +19,6 @@ opt.mouse = "a"
 opt.hidden = true
 opt.scrolloff = 8
 
-opt.conceallevel = 3
-
 -- Indentation
 opt.expandtab = true
 opt.smartindent = true

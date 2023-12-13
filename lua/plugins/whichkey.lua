@@ -10,6 +10,7 @@ local function config()
                 w = { "<cmd>Telescope live_grep<CR>", "Text grep" },
                 s = { "<cmd>Telescope spell_suggest<CR>", "Spell suggest" },
                 t = { "<cmd>TodoTelescope<CR>", "Todos" },
+                b = { "<cmd>Telescope buffers<CR>", "Buffers" },
                 ["."] = { "<cmd>Telescope keymaps<CR>", "Keymaps" }
             },
 

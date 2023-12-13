@@ -9,7 +9,7 @@ return {
             ["core.dirman"] = {          -- Manages Neorg workspaces
                 config = {
                     workspaces = {
-                        notes = "~/Library/Mobile Documents/com~apple~CloudDocs/Neorg"
+                        notes = "~/Sync/Neorg"
                     },
                     default_workspace = "notes"
                 }
