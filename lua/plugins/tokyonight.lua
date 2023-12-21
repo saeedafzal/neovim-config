@@ -2,14 +2,7 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {
-        style = "night",
-        styles = {
-            comments = { italic = true },
-            keywords = { italic = true, bold = true },
-            functions = { italic = true, bold = true },
-            variables = { bold = true }
-        },
-        lualine_bold = true
-    }
+    config = function()
+        vim.cmd[[colorscheme tokyonight-night]]
+    end
 }

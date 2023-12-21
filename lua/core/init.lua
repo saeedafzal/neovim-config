@@ -1,10 +1,11 @@
-local opt = vim.opt
-local g = vim.g
-local api = vim.api
+local opt, g, api =
+    vim.opt,
+    vim.g,
+    vim.api
 
 -- Disable netrw
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+-- g.loaded_netrw = 1
+-- g.loaded_netrwPlugin = 1
 
 -- Settings
 g.mapleader = " "
@@ -30,7 +31,6 @@ local function indent(n, expand)
     local size = 4
     if n ~= "" then size = n end
 
-    -- Number conversion
     local num = tonumber(size)
     if num then
         size = num

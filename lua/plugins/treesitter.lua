@@ -16,8 +16,16 @@ return {
                 disable = { "dart" }
             },
 
-            autotag = { enable = true },
-            matchup = { enable = true }
+            autotag = { enable = true }
         }
-    end
+    end,
+    opts = {
+        ensure_installed = { "lua" },
+        auto_install = true,
+
+        highlight = { enable = true },
+        indent = { enable = true },
+
+        autotag = { enable = true }
+    }
 }

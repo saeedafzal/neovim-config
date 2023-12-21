@@ -6,21 +6,12 @@ local function config()
             -- Finders
             f = {
                 name = "Finders",
-                f = { "<cmd>Telescope fd<CR>", "Find files" },
+                f = { "<cmd>Telescope find_files<CR>", "Find files" },
                 w = { "<cmd>Telescope live_grep<CR>", "Text grep" },
                 s = { "<cmd>Telescope spell_suggest<CR>", "Spell suggest" },
                 t = { "<cmd>TodoTelescope<CR>", "Todos" },
                 b = { "<cmd>Telescope buffers<CR>", "Buffers" },
                 ["."] = { "<cmd>Telescope keymaps<CR>", "Keymaps" }
-            },
-
-            -- Buffers
-            b = {
-                name = "Buffers",
-                p = { "<cmd>BufferPick<CR>", "Pick buffer" },
-                q = { "<cmd>BufferMovePrevious<CR>", "Move buffer left" },
-                w = { "<cmd>BufferMoveNext<CR>", "Move buffer right" },
-                x = { "<cmd>BufferCloseAllButCurrent<CR>", "Close all but current" }
             },
 
             -- Git
@@ -48,7 +39,6 @@ local function config()
             },
 
             -- Misc
-            c = { "<cmd>BufferClose<CR>", "Close buffer" },
             h = { "<cmd>noh<CR>", "No highlight" },
             s = { "<cmd>SymbolsOutline<CR>", "Symbols outline" },
             t = { "<cmd>TroubleToggle<CR>", "Toggle trouble" }
@@ -59,15 +49,11 @@ local function config()
             t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "type definition" }
         },
 
-        -- Neotree
-        ["<C-n>"] = { "<cmd>Neotree toggle<CR>", "Toggle neotree" },
-
-        -- Switching Buffers
-        ["<TAB>"] = { "<cmd>BufferNext<CR>", "Next buffer" },
-        ["<S-TAB>"] = { "<cmd>BufferPrevious<CR>", "Previous buffer" },
-
         -- Find in file
-        ["<C-f>"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in file" }
+        ["<C-f>"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in file" },
+
+        -- Misc
+        K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" }
     })
 end
 
@@ -81,7 +67,7 @@ return {
     end,
     config = config,
     opts = {
-        ignore_missing = false,
+        ignore_missing = true,
         key_labels = {
             ["<space>"] = "SPC"
         }

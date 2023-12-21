@@ -5,6 +5,12 @@ return {
         filetypes = {
             "*";
             "!markdown";
+            "!neorg";
+        },
+        buftypes = {
+            "*",
+            "!prompt",
+            "!popup"
         },
         user_default_options = {
             RRGGBBAA = true,
