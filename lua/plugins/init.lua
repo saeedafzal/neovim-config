@@ -1,6 +1,7 @@
 return {
     "LunarVim/bigfile.nvim",
     "wakatime/vim-wakatime",
+    "j-morano/buffer_manager.nvim",
 
     -- NOTE: Plugins
 

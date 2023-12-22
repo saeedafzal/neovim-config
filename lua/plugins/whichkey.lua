@@ -38,6 +38,9 @@ local function config()
                 R = { "<cmd>lua require('spectre').toggle()<CR>", "Replace All" }
             },
 
+            -- Buffers
+            b = { "<cmd>lua require('buffer_manager.ui').toggle_quick_menu()<CR>", "Buffer Manager" },
+
             -- Misc
             h = { "<cmd>noh<CR>", "No highlight" },
             s = { "<cmd>SymbolsOutline<CR>", "Symbols outline" },
