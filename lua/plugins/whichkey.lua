@@ -55,6 +55,9 @@ local function config()
         -- Find in file
         ["<C-f>"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in file" },
 
+        -- Neotree
+        ["<C-n>"] = { "<cmd>Neotree<CR>", "Neotree" },
+
         -- Misc
         K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" }
     })
