@@ -2,6 +2,7 @@ return {
     "LunarVim/bigfile.nvim",
     "wakatime/vim-wakatime",
     "j-morano/buffer_manager.nvim",
+    "rcarriga/nvim-notify",
 
     -- NOTE: Plugins
 

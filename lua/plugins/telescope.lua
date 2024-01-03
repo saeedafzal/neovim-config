@@ -13,9 +13,8 @@ return {
 
         telescope.setup {
             pickers = {
-                find_files = {
-                    theme = "dropdown"
-                }
+                fd = { theme = "dropdown" },
+                current_buffer_fuzzy_find = { theme = "dropdown" }
             }
         }
 

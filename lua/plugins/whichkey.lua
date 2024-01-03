@@ -6,7 +6,7 @@ local function config()
             -- Finders
             f = {
                 name = "Finders",
-                f = { "<cmd>Telescope find_files<CR>", "Find files" },
+                f = { "<cmd>Telescope fd<CR>", "Find files" },
                 w = { "<cmd>Telescope live_grep<CR>", "Text grep" },
                 s = { "<cmd>Telescope spell_suggest<CR>", "Spell suggest" },
                 t = { "<cmd>TodoTelescope<CR>", "Todos" },
