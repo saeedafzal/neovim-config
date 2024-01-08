@@ -12,9 +12,15 @@ return {
         local telescope = require("telescope")
 
         telescope.setup {
+            defaults = {
+                layout_config = {
+                    vertical = { width = 0.5 }
+                }
+            },
             pickers = {
-                fd = { theme = "dropdown" },
-                current_buffer_fuzzy_find = { theme = "dropdown" }
+                fd = { layout_strategy = "vertical" },
+                live_grep = { layout_strategy = "vertical" },
+                current_buffer_fuzzy_find = { layout_strategy = "vertical" }
             }
         }
 

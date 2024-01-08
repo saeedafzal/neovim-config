@@ -7,26 +7,10 @@ return {
     -- NOTE: Plugins
 
     {
-        "nvim-pack/nvim-spectre",
-        dependencies = "nvim-lua/plenary.nvim"
-    },
-
-    {
-        "folke/todo-comments.nvim",
-        event = "BufRead",
-        dependencies = "nvim-lua/plenary.nvim",
+        "lukas-reineke/indent-blankline.nvim",
+        event = "BufEnter",
+        main = "ibl",
         config = true
-    },
-
-    {
-        "nmac427/guess-indent.nvim",
-        lazy = false,
-        config = true
-    },
-
-    {
-        "f-person/git-blame.nvim",
-        cmd = "GitBlameToggle"
     },
 
     {
@@ -36,16 +20,12 @@ return {
     },
 
     {
-        "sindrets/diffview.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        cmd = "DiffviewOpen",
-        config = true
-    },
-
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufEnter",
-        main = "ibl",
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim"
+        },
         config = true
     },
 
@@ -62,23 +42,10 @@ return {
         config = true
     },
     {
-        "simrat39/symbols-outline.nvim",
-        cmd = "SymbolsOutline",
-        config = true
-    },
-    {
-        "folke/trouble.nvim",
-        dependencies = "nvim-tree/nvim-web-devicons",
-        cmd = "TroubleToggle",
-        config = true
-    },
-    {
         "numToStr/Comment.nvim",
         lazy = false,
         config = true
     },
-
-    "RRethy/vim-illuminate",
 
     -- NOTE: Flutter
 

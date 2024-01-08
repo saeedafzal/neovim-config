@@ -31,20 +31,19 @@ local function config()
                 r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" }
             },
 
-            -- Spectre
-            r = {
-                name = "Spectre",
-                r = { "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", "Search & Replace" },
-                R = { "<cmd>lua require('spectre').toggle()<CR>", "Replace All" }
-            },
-
             -- Buffers
             b = { "<cmd>lua require('buffer_manager.ui').toggle_quick_menu()<CR>", "Buffer Manager" },
 
             -- Misc
             h = { "<cmd>noh<CR>", "No highlight" },
             s = { "<cmd>SymbolsOutline<CR>", "Symbols outline" },
-            t = { "<cmd>TroubleToggle<CR>", "Toggle trouble" }
+
+            -- Terminal
+            t = {
+                t = { "<cmd>ToggleTerm size=40 direction=horizontal<CR>", "Horizontal Terminal" }
+            },
+
+            T = { "<cmd>TroubleToggle<CR>", "Toggle trouble" }
         },
 
         g = {
@@ -56,7 +55,7 @@ local function config()
         ["<C-f>"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in file" },
 
         -- Neotree
-        ["<C-n>"] = { "<cmd>Neotree<CR>", "Neotree" },
+        ["<C-n>"] = { "<cmd>Neotree reveal_force_cwd<CR>", "Neotree" },
 
         -- Misc
         K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" }
