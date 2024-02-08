@@ -9,6 +9,11 @@ return {
     },
     cmd = "Neotree",
     opts = {
+        filesystem = {
+            filtered_items = {
+                hide_dotfiles = false
+            }
+        },
         window = {
             position = "current",
 

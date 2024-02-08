@@ -14,7 +14,7 @@ return {
         telescope.setup {
             defaults = {
                 layout_config = {
-                    vertical = { width = 0.5 }
+                    vertical = { width = 0.75 }
                 }
             },
             pickers = {
