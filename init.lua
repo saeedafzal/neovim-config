@@ -18,9 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Import plugins
 require("lazy").setup("plugins")
 
--- Set vim.notify
-vim.notify = require("notify")
-
 -- Terminal mappings
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
@@ -34,4 +31,17 @@ function _G.set_terminal_keymaps()
     set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 end
 
-vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
+-- Transparent background
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+    pattern = { "*" },
+    command = "highlight Normal ctermbg=NONE guibg=NONE"
+})
+
+-- Set cargo as compiler for rust files
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*.rs" },
+    command = "compiler cargo"
+})
+
+-- Colorscheme
+vim.cmd [[colorscheme slate]]

@@ -2,7 +2,6 @@ return {
     "LunarVim/bigfile.nvim",
     "wakatime/vim-wakatime",
     "j-morano/buffer_manager.nvim",
-    "rcarriga/nvim-notify",
 
     -- NOTE: Plugins
 
@@ -10,12 +9,6 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufEnter",
         main = "ibl",
-        config = true
-    },
-
-    {
-        "lewis6991/gitsigns.nvim",
-        event = "BufEnter",
         config = true
     },
 

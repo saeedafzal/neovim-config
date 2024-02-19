@@ -4,8 +4,8 @@ local opt, g, api =
     vim.api
 
 -- Disable netrw
--- g.loaded_netrw = 1
--- g.loaded_netrwPlugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- Settings
 g.mapleader = " "
