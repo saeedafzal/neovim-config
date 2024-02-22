@@ -23,15 +23,13 @@ map("n", "<C-Up>", ":horizontal resize -3<CR>")
 -- Netrw
 map("n", "<C-n>", ":Exp<CR>")
 
--- Auto close quotes and parenthesis
-map("i", "'", "''<left>")
-map("i", "\"", "\"\"<left>")
-map("i", "(", "()<left>")
-map("i", "[", "[]<left>")
-map("i", "{", "{}<left>")
-
 -- Remove highlights
 map("n", "<leader>h", ":noh<CR>")
 
 -- Replace (visual)
 map("v", "<leader>r", "\"hy:%s/<C-r>h//g<left><left>")
+
+-- Telescope
+map("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")
+map("n", "<leader>ff", ":Telescope fd<CR>")
+map("n", "<leader>fw", ":Telescope live_grep<CR>")
