@@ -20,3 +20,6 @@ require("lazy").setup("plugins")
 
 -- Colorscheme
 vim.cmd [[colorscheme slate]]
+
+-- Highlight
+vim.cmd [[hi Whitespace guifg=#334155]]
