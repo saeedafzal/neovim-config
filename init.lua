@@ -23,3 +23,4 @@ vim.cmd [[colorscheme slate]]
 
 -- Highlight
 vim.cmd [[hi Whitespace guifg=#334155]]
+vim.cmd [[hi StatusLine guibg=#24283b guifg=#c0caf5]]

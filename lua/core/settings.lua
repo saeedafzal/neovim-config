@@ -36,12 +36,9 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 -- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false
+vim.opt.foldmethod = "indent"
 
 -- TODO: StatusLine
--- vim.cmd "highlight StatusBuffer guibg=#458588 guifg=#1d2021"
 vim.o.statusline = "%f %m %y %q |%n| %=%l,%c        %P"
 
 -- Commands
