@@ -16,6 +16,8 @@ vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.gp = "rg --vimgrep"
+
 vim.cmd "set path+=**"
 
 -- Netrw
@@ -36,7 +38,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 -- Folding
-vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false
 
 -- TODO: StatusLine
 vim.o.statusline = "%f %m %y %q |%n| %=%l,%c        %P"

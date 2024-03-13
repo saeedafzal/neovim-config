@@ -10,10 +10,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     command = "compiler cargo"
 })
 
--- Set go as compiler for .go files
+-- Set indentation for .go files
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*.go" },
-    command = "compiler go"
+    callback = function()
+        vim.cmd [[Tabs 4]]
+        vim.cmd [[set nolist]]
+    end
 })
 
 -- Unfold on buffer read
