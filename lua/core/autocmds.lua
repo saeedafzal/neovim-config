@@ -24,3 +24,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*" },
     callback = function() vim.api.nvim_command("normal zR") end
 })
+
+-- Statusline
+vim.api.nvim_exec([[
+    augroup Statusline
+    au!
+    au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
+    au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
+    au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
+    augroup END
+]], false)

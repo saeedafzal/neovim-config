@@ -7,9 +7,6 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options) 
 end
 
--- Normal mode from home row
-map("i", "jk", "<Esc>")
-
 -- Buffer navigation
 map("n", "<Tab>", ":bnext<CR>")
 map("n", "<S-Tab>", ":bprevious<CR>")

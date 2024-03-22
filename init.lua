@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- Colorscheme
-vim.cmd [[colorscheme slate]]
+vim.cmd [[colorscheme habamax]]
 
 -- Highlight
 vim.cmd [[hi Whitespace guifg=#334155]]

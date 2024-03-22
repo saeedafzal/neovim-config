@@ -15,9 +15,9 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.showmode = false
 
 vim.opt.gp = "rg --vimgrep"
-
 vim.cmd "set path+=**"
 
 -- Netrw
@@ -39,9 +39,6 @@ vim.opt.incsearch = true
 
 -- Folding
 vim.opt.foldenable = false
-
--- TODO: StatusLine
-vim.o.statusline = "%f %m %y %q |%n| %=%l,%c        %P"
 
 -- Commands
 local function indent(n, expand)
