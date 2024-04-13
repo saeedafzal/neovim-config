@@ -12,7 +12,7 @@ opt.relativenumber = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.title = true
--- opt.titlestring = "filename [+=-] - NVIM"
+opt.titlestring = "%t - NVIM"
 opt.wrap = false
 opt.clipboard = "unnamedplus"
 opt.splitbelow = true
@@ -20,7 +20,10 @@ opt.splitright = true
 opt.showmode = false
 
 opt.grepprg = "rg --vimgrep --smart-case"
+
 opt.path = ".,**"
+vim.cmd "set path-=node_modules/**"
+vim.cmd "set wildignore-=*/node_modules/*"
 
 -- Netrw
 g.netrw_banner = 0
