@@ -2,12 +2,8 @@ return {
     "wakatime/vim-wakatime",
 
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            style = "night",
-            transparent = true
-        }
+        "nvim-lualine/lualine.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = true
     }
 }
