@@ -21,3 +21,6 @@ map("n", "<leader>h", ":noh<CR>")
 
 -- Replace (visual)
 map("v", "<leader>r", "\"hy:%s/<C-r>h//g<left><left>")
+
+-- Buffer manager
+map("n", "<leader>b", ":lua require(\"buffer_manager.ui\").toggle_quick_menu()<CR>")
