@@ -29,3 +29,4 @@ map("n", "<leader>b", ":lua require(\"buffer_manager.ui\").toggle_quick_menu()<C
 map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
 map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>")
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
