@@ -11,7 +11,6 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*.go" },
     callback = function()
         vim.cmd [[Tabs 4]]
-        vim.cmd [[set nolist]]
     end
 })
 

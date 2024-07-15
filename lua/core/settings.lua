@@ -34,7 +34,7 @@ opt.smartindent = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.list = true
-opt.listchars = "lead:·"
+opt.listchars = "lead:·,tab:··"
 
 -- Search
 vim.opt.ignorecase = true
