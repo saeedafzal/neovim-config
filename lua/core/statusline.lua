@@ -1,4 +1,4 @@
-local fn, api = vim.fn, vim.api
+local fn, api, o, bo = vim.fn, vim.api, vim.o, vim.bo
 
 local modes = {
     ["n"]  = "NORMAL",
@@ -19,8 +19,8 @@ end
 
 function StatusLine()
     local filename = fn.expand("%:t")
-    local filetype = vim.bo.filetype
-    local lineinfo = fn.line(".") .. ":" .. vim.fn.col(".")
+    local filetype = bo.filetype
+    local lineinfo = fn.line(".") .. ":" .. fn.col(".")
     local percent =  fn.line(".") / fn.line("$") * 100
 
     return table.concat {
@@ -35,4 +35,4 @@ function StatusLine()
     }
 end
 
-vim.o.statusline = "%!luaeval('StatusLine()')"
+o.statusline = "%!luaeval('StatusLine()')"

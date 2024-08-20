@@ -1,4 +1,4 @@
-local g, opt = vim.g, vim.opt
+local g, opt, cmd = vim.g, vim.opt, vim.cmd
 
 -- Settings
 g.mapleader = " "
@@ -22,11 +22,8 @@ opt.showmode = false
 opt.grepprg = "rg --vimgrep --smart-case"
 
 opt.path = ".,**"
-vim.cmd "set path-=node_modules/**"
-vim.cmd "set wildignore-=*/node_modules/*"
-
--- Netrw
-g.netrw_banner = 0
+cmd "set path-=node_modules/**"
+cmd "set wildignore-=*/node_modules/*"
 
 -- Indentation
 opt.expandtab = true
