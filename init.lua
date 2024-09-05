@@ -18,8 +18,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Init plugins
+-- Load plugins
 require("lazy").setup("plugins")
-
--- Theme
-vim.cmd [[colorscheme tokyonight]]

@@ -2,7 +2,6 @@ local g, opt, cmd = vim.g, vim.opt, vim.cmd
 
 -- Settings
 g.mapleader = " "
-g.maplocalleader = ","
 
 opt.backup = false
 opt.swapfile = false
@@ -19,8 +18,6 @@ opt.splitbelow = true
 opt.splitright = true
 opt.showmode = false
 
-opt.grepprg = "rg --vimgrep --smart-case"
-
 opt.path = ".,**"
 cmd "set path-=node_modules/**"
 cmd "set wildignore-=*/node_modules/*"
@@ -34,7 +31,13 @@ opt.list = true
 opt.listchars = "lead:·,tab:··"
 
 -- Search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.incsearch = true
+
+-- Transparency
+vim.cmd([[highlight Normal guibg=none]])
+vim.cmd([[highlight NonText guibg=none]])
+vim.cmd([[highlight Normal ctermbg=none]])
+vim.cmd([[highlight NonText ctermbg=none]])
