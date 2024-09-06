@@ -19,8 +19,10 @@ opt.splitright = true
 opt.showmode = false
 
 opt.path = ".,**"
-cmd "set path-=node_modules/**"
-cmd "set wildignore-=*/node_modules/*"
+opt.wildignore:append({
+    "**/node_modules/**",
+    "**/target/**"
+})
 
 -- Indentation
 opt.expandtab = true
