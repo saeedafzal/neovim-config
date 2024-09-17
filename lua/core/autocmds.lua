@@ -18,6 +18,14 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     command = "compiler tsc"
 })
 
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*.dart" },
+    callback = function()
+        vim.cmd [[Spaces 2]]
+        vim.cmd [[compiler dart]]
+    end
+})
+
 -- Markdown navigation
 function navigate_markdown()
     local line = vim.api.nvim_get_current_line()
