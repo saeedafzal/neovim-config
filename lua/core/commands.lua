@@ -21,3 +21,8 @@ end, { nargs = "?" })
 api.nvim_create_user_command("Spaces", function(v)
     indent(v.args, true)
 end, { nargs = "?" })
+
+api.nvim_create_user_command("TE", function(v)
+    vim.cmd("split")
+    vim.cmd("term " .. v.args)
+end, { nargs = "*", force = true })
