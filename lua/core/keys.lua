@@ -21,3 +21,7 @@ map("n", "<leader>h", ":noh<CR>")
 
 -- Replace (visual)
 map("v", "<leader>r", "\"hy:%s/<C-r>h//g<left><left>")
+
+-- Neovide
+map("n", "<C-+>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1, 1.0)<CR>")
+map("n", "<C-_>", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.1)<CR>")

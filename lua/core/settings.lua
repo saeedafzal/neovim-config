@@ -43,3 +43,9 @@ vim.cmd([[highlight Normal guibg=none]])
 vim.cmd([[highlight NonText guibg=none]])
 vim.cmd([[highlight Normal ctermbg=none]])
 vim.cmd([[highlight NonText ctermbg=none]])
+
+-- Neovide
+if g.neovide == true then
+    g.neovide_transparency = 0.7
+    g.neovide_scale_factor = 0.5
+end
