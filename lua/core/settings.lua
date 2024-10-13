@@ -48,4 +48,5 @@ vim.cmd([[highlight NonText ctermbg=none]])
 if g.neovide == true then
     g.neovide_transparency = 0.7
     g.neovide_scale_factor = 0.5
+    g.neovide_cursor_trail_size = 0
 end
