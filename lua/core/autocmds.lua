@@ -26,6 +26,11 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     end
 })
 
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = "*.md",
+    command = "set conceallevel=3"
+})
+
 -- Markdown navigation
 function navigate_markdown()
     local line = vim.api.nvim_get_current_line()
