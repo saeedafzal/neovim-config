@@ -44,6 +44,14 @@ vim.cmd([[highlight NonText guibg=none]])
 vim.cmd([[highlight Normal ctermbg=none]])
 vim.cmd([[highlight NonText ctermbg=none]])
 
+-- Code Folding
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldcolumn = "0"
+opt.foldtext = ""
+opt.foldlevel = 99
+opt.foldlevelstart = 1
+
 -- Neovide
 if g.neovide == true then
     g.neovide_transparency = 0.7
