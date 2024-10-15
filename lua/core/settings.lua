@@ -45,16 +45,20 @@ vim.cmd([[highlight Normal ctermbg=none]])
 vim.cmd([[highlight NonText ctermbg=none]])
 
 -- Code Folding
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldcolumn = "0"
-opt.foldtext = ""
+opt.foldmethod = "syntax"
 opt.foldlevel = 99
-opt.foldlevelstart = 1
 
 -- Neovide
 if g.neovide == true then
     g.neovide_transparency = 0.7
     g.neovide_scale_factor = 0.5
+
+    -- Disable animations
+    g.neovide_position_animation_length = 0
+    g.neovide_cursor_animation_length = 0.00
     g.neovide_cursor_trail_size = 0
+    g.neovide_cursor_animate_in_insert_mode = false
+    g.neovide_cursor_animate_command_line = false
+    g.neovide_scroll_animation_far_lines = 0
+    g.neovide_scroll_animation_length = 0.00
 end
