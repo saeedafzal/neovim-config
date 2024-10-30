@@ -7,10 +7,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*.go" },
-    callback = function()
-        vim.cmd [[Tabs 4]]
-        vim.cmd [[compiler go]]
-    end
+    command = "Tabs 4"
 })
 
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
