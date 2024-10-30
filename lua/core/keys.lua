@@ -27,3 +27,9 @@ if vim.g.neovide == true then
     map("n", "<C-+>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1, 1.0)<CR>")
     map("n", "<C-_>", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.1)<CR>")
 end
+
+-- LSP
+map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>")
+map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>")
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
