@@ -1,4 +1,4 @@
-local g, opt, cmd = vim.g, vim.opt, vim.cmd
+local g, opt, o = vim.g, vim.opt, vim.o
 
 -- Settings
 g.mapleader = " "
@@ -38,27 +38,10 @@ opt.smartcase = true
 opt.hlsearch = true
 opt.incsearch = true
 
--- Transparency
-vim.cmd([[highlight Normal guibg=none]])
-vim.cmd([[highlight NonText guibg=none]])
-vim.cmd([[highlight Normal ctermbg=none]])
-vim.cmd([[highlight NonText ctermbg=none]])
-
 -- Code Folding
-opt.foldmethod = "syntax"
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 99
 
--- Neovide
-if g.neovide == true then
-    g.neovide_transparency = 0.7
-    g.neovide_scale_factor = 0.5
-
-    -- Disable animations
-    g.neovide_position_animation_length = 0
-    g.neovide_cursor_animation_length = 0.00
-    g.neovide_cursor_trail_size = 0
-    g.neovide_cursor_animate_in_insert_mode = false
-    g.neovide_cursor_animate_command_line = false
-    g.neovide_scroll_animation_far_lines = 0
-    g.neovide_scroll_animation_length = 0.00
-end
+-- Theme
+o.background = "light"

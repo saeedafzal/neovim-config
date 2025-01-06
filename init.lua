@@ -20,3 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
 require("lazy").setup("plugins")
+
+-- Theme
+require("theme_switcher").toggle()

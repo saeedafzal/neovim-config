@@ -27,3 +27,6 @@ if vim.g.neovide == true then
     map("n", "<C-+>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1, 1.0)<CR>")
     map("n", "<C-_>", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.1)<CR>")
 end
+
+-- Theme toggling
+map("n", "<leader>t", ":lua require('theme_switcher').toggle()<CR>")
