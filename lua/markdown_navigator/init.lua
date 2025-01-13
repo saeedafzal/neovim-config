@@ -23,7 +23,7 @@ function M.setup()
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function()
-            vim.api.nvim_set_keymap("n", "gd", ":lua require('markdown_navigator').open()", {})
+            vim.api.nvim_set_keymap("n", "<CR>", ":lua require('markdown_navigator').open()", {})
         end
     })
 end

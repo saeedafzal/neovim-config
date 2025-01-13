@@ -30,3 +30,10 @@ end
 
 -- Theme toggling
 map("n", "<leader>t", ":lua require('theme_switcher').toggle()<CR>")
+
+-- LSP
+map("n", "<S-k>", ":lua vim.lsp.buf.hover()<CR>")
+map("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>")
+map("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>")
+map("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>")
+map("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
