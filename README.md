@@ -1,5 +1,4 @@
 # Neovim Config
 
-## Requirements
-* [ripgrep](https://github.com/BurntSushi/ripgrep)
-* [fd](https://github.com/sharkdp/fd)
+## Getting Started
+`git clone https://github.com/saeedafzal/neovim-config.git ~/.config/nvim --recursive`
