@@ -17,6 +17,7 @@ opt.clipboard = "unnamedplus"
 opt.splitbelow = true
 opt.splitright = true
 opt.showmode = false
+opt.binary = false
 
 opt.path = ".,**"
 opt.wildignore:append({
