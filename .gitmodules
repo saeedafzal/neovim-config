@@ -1,3 +1,9 @@
 [submodule "pack/vendor/start/vim-wakatime"]
 	path = pack/vendor/start/vim-wakatime
 	url = https://github.com/wakatime/vim-wakatime.git
+[submodule "pack/vendor/start/plenary.nvim"]
+	path = pack/vendor/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/vendor/start/neogit"]
+	path = pack/vendor/start/neogit
+	url = https://github.com/NeogitOrg/neogit.git
