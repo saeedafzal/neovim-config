@@ -1,6 +1,9 @@
 -- Core configuration
 require "core"
 
+-- Plugin configuration
+require "plugins"
+
 -- Theme
 vim.cmd [[
     hi Normal guibg=none

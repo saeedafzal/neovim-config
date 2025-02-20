@@ -7,3 +7,6 @@
 [submodule "pack/vendor/start/neogit"]
 	path = pack/vendor/start/neogit
 	url = https://github.com/NeogitOrg/neogit.git
+[submodule "pack/vendor/start/vimwiki"]
+	path = pack/vendor/start/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
