@@ -35,4 +35,6 @@ function StatusLine()
     }
 end
 
-o.statusline = "%!luaeval('StatusLine()')"
+o.statusline = "%!v:lua.StatusLine()"
+
+api.nvim_set_hl(0, "StatusLine", { bg = "#1D293D", fg = "#CAD5E2" })
