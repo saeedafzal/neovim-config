@@ -1,6 +1,0 @@
-[submodule "pack/vendor/start/vim-wakatime"]
-	path = pack/vendor/start/vim-wakatime
-	url = https://github.com/wakatime/vim-wakatime.git
-[submodule "pack/vendor/start/vimwiki"]
-	path = pack/vendor/start/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
