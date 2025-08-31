@@ -7,6 +7,8 @@ vim.o.relativenumber = true
 vim.o.wrap = false
 vim.o.clipboard = "unnamedplus"
 vim.o.signcolumn = "yes"
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 -- Indentation
 vim.o.expandtab = true
@@ -29,20 +31,58 @@ vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
 vim.keymap.set("n", "<leader>x", ":bd!<CR>")
 vim.keymap.set("n", "<leader>h", ":noh<CR>")
 
-vim.keymap.set("n", "<C-n>", ":Oil<CR>")
-vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>b", ":Pick buffers<CR>")
+vim.keymap.set("n", "<C-n>", ":Exp<CR>")
+
+-- Commands
+local function indent(n, expand)
+    local size = 4
+    if n ~= "" then size = n end
+
+    local num = tonumber(size)
+    if num then
+        size = num
+    end
+
+    vim.o.expandtab = expand
+    vim.o.shiftwidth = size
+    vim.o.tabstop = size
+end
+
+vim.api.nvim_create_user_command("Tabs", function(v)
+    indent(v.args, false)
+end, { nargs = "?" })
+
+vim.api.nvim_create_user_command("Spaces", function(v)
+    indent(v.args, true)
+end, { nargs = "?" })
+
+vim.api.nvim_create_user_command("TE", function(v)
+    vim.cmd("split")
+    vim.cmd("term " .. v.args)
+end, { nargs = "*", force = true })
+
+-- autocmd
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*.ts", "*.tsx" },
+    command = "compiler tsc"
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = "*.go",
+    command = "Tabs 4"
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = "*.rs",
+    command = "compiler cargo"
+})
 
 -- Plugins
 vim.pack.add({
-    { src = "https://github.com/wakatime/vim-wakatime" },
-    { src = "https://github.com/stevearc/oil.nvim" },
-    { src = "https://github.com/echasnovski/mini.pick" }
+    { src = "https://github.com/wakatime/vim-wakatime" }
 })
 
 -- Setup plugins
-require("mini.pick").setup()
-require("oil").setup()
 
 -- Theme
 vim.cmd [[
